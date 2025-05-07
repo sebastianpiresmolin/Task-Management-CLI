@@ -1,0 +1,10 @@
+# ninja log v6
+27	448	7683228202355755	CMakeFiles/testing.dir/main.cpp.obj	7307f6b441dd4328
+3144	4208	7683230186574130	testing.exe	2951a7325bee2c68
+2	323	7683237196919016	build.ninja	2e4d9ccf3eb79611
+32	3143	7683230155455449	CMakeFiles/testing.dir/menu.cpp.obj	34d169767172d876
+33	447	7683228202416898	CMakeFiles/testing.dir/greeting.cpp.obj	1b7cf98151c5f59f
+18	1409	7683237221198782	CMakeFiles/testing.dir/greeting.cpp.obj	5d8ee28cb5dea1e3
+10	1425	7683237221132999	CMakeFiles/testing.dir/main.cpp.obj	a5ce914476235917
+24	5662	7683237221270677	CMakeFiles/testing.dir/menu.cpp.obj	7ae23cade2400aa3
+5662	7146	7683237277648988	testing.exe	b782e2f1a073c601

@@ -1,57 +1,23 @@
 ﻿#include <iostream>
 #include <fstream>
 #include "menu.h"
-#include <string>
 #include <vector>
+#include <nlohmann/json.hpp>
+#include <nlohmann/json_fwd.hpp>
+
 #include "Models/task.h"
-#include <iomanip>
-#include <chrono>
 #include "listFiles.h"
 #include "addTask.h"
-#include "seedTask.h"
+#include "exportTasks.h"
+#include "importTasks.h"
 #include "markDone.h"
-#include "nlohmann/json.hpp"
 
 using namespace std;
 
 vector<Task> taskList;
 
-void ExportTasks(const std::vector<Task>& taskList) {
-    nlohmann::json tasksJson;
-
-    for (const Task& task : taskList) {
-        nlohmann::json taskJson;
-
-        taskJson["id"] = task.id;
-        taskJson["title"] = task.title;
-        taskJson["description"] = task.description;
-        taskJson["isDone"] = task.isDone;
-
-        std::tm* timeinfo = std::localtime(&task.createdAt);
-        std::ostringstream createdAtStream;
-        createdAtStream << std::put_time(timeinfo, "%Y-%m-%d %H:%M:%S");
-        taskJson["createdAt"] = createdAtStream.str();
-
-        time_t deadlineTime = task.createdAt + (task.deadline * 24 * 60 * 60);
-        std::tm* deadlineInfo = std::localtime(&deadlineTime);
-        std::ostringstream deadlineStream;
-        deadlineStream << std::put_time(deadlineInfo, "%Y-%m-%d");
-        taskJson["deadline"] = deadlineStream.str();
-
-        tasksJson.push_back(taskJson);
-    }
-
-    std::cout << "Writing to: " << std::filesystem::absolute("tasks.json") << std::endl;
-    std::ofstream outFile("tasks.json");
-    outFile << std::setw(4) << tasksJson << std::endl;
-
-    std::cout << "Tasks written to tasks.json" << std::endl;
-}
-
-
 void Menu() {
     int choice = -1;
-    SeedTask(taskList);
 
     while (true) {
         cout << "------------------------------------------------------------------------------------------------------------------------" << endl;
@@ -80,7 +46,7 @@ void Menu() {
                 ExportTasks(taskList);
                 break;
             case 5:
-                cout << "Trigger 5\n";
+                ImportTasks(taskList);
                 break;
             case 0:
                 cout << "Exiting program.\n";

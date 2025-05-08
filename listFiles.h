@@ -6,6 +6,11 @@
 #define LISTFILES_H
 
 void ListTasks(const std::vector<Task>& taskList) {
+    if (taskList.empty()) {
+        std::cout << "No tasks found." << std::endl;
+        return;
+    }
+
     for (const Task& task : taskList) {
         std::cout << "ID: " << task.id << std::endl;
         std::cout << "Title: " << task.title << std::endl;

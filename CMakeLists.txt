@@ -11,8 +11,11 @@ add_executable(testing main.cpp
         Models/task.h
         listFiles.h
         addTask.h
-        seedTask.h
         markDone.h
+        exportTasks.cpp
+        exportTasks.h
+        importTasks.cpp
+        importTasks.h
 )
 
 find_package(nlohmann_json CONFIG REQUIRED)

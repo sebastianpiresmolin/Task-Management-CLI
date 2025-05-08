@@ -1,4 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2025.1.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -G "MinGW Makefiles" -S "C:\Users\Sebastian Molin\Documents\GitHub\Task-Management-CLI" -B "C:\Users\Sebastian Molin\Documents\GitHub\Task-Management-CLI\cmake-build-debug"
--- Configuring done (0.3s)
--- Generating done (0.0s)
--- Build files have been written to: C:/Users/Sebastian Molin/Documents/GitHub/Task-Management-CLI/cmake-build-debug
